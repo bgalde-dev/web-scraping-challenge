@@ -20,7 +20,10 @@ def parse_page(browser, url, tag, class_name, find_all):
     html = browser.html
     soup = BeautifulSoup(html, 'html.parser')
 
-    find_all ? return soup.find_all(tag, {'class' : class_name}) : return soup.find(tag, {'class' : class_name})
+    if find_all: 
+        return soup.find_all(tag, {'class' : class_name})
+    else: 
+        return soup.find(tag, {'class' : class_name})
 
 # Scrape function to scrape all needed features and create a dictionary from them.   
 def scrape():
@@ -64,7 +67,7 @@ def scrape():
     tables = pd.read_html(config.fact_url)
     fact_df = tables[0]
 
-    # Only want the Mars header to show on the facts table.
+    # Only want the Mars header to show on the facts
     mars_fact_df = fact_df.rename(columns = {0 : ' ', 1 : 'Mars'})
 
     mars_table_str = mars_fact_df.to_html(index=False)
@@ -72,4 +75,6 @@ def scrape():
 
     mars_data['mars_fact_table'] = mars_table_string
 
+    #Close the browser
+    browser.quit()
     return mars_data

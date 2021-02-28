@@ -16,10 +16,9 @@ The index.html template for flask to show.
 
 <body>
 
-  <!--Creation of jumbotron for website.  This includes the scraping button to activate the scrape function and update the page-->
+  <!-- Creation of jumbotron for website.  This includes the scraping button to activate the scrape function and update the page -->
 <div class=jumbotron>
   <h1 class='text-sm-center display-4'>Mission to Mars!</h1>
-  <p class='lead text-sm-center'>News from Mars?</p>
   <hr class='my-4'>
     <div class='container'>
       <div class='row'>
@@ -30,18 +29,16 @@ The index.html template for flask to show.
     </div>
 </div>
 
-<!--First section with the scraped news articles headline and its associated teaser sentence-->
-
+<!-- Section with the news articles headline and its the teaser sentence -->
 <h1 class='text-lg-left' style='padding-left: 10px;'>Latest News For Mars</h1>
 <h3 style='padding-left: 10px;'>{{mars.news_title}}</h3>
 <p style='padding-left: 10px;'>{{mars.news_p}}</p>
 
-<!--Next section with the scraped featured image of Mars and the table with general Mars information-->
-
+<!-- Section with the scraped featured image of Mars and the table with general Mars facts -->
 <div class='container-fluid'>
   <div class='row'>
     <div class='col-sm-12 col-md-6'>
-      <h1 class='text-lg-left'>Featured Image of Mars</h1>
+      <h1 class='text-lg-left'>Featured Mars Image</h1>
         <img style='height: 380px; width: 100%;' src='{{mars.featured_image_url}}' alt='feature_mars'>
     </div>
     <div class='col-sm-12 col-md-6'>

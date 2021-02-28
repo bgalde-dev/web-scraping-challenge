@@ -16,8 +16,13 @@ mars_scrape = db.scrape
 # Route to render index.html template using data from Mongo
 @app.route("/")
 def home():
-    # Write a statement that finds all the items in the db and sets it to a variable
+    # Statement that finds all the items in the db and sets it to a variable
     mars_data = mars_scrape.find_one()
+
+    # Make sure we have data if not go get it.
+    if mars_data is None:
+        # Redirect to scrape data 
+        return redirect("/scrape")
 
     # Render an index.html template and pass it the data you retrieved from the database
     return render_template("index.html", mars=mars_data)
